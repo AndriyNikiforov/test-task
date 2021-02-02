@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "dev",
+    "password": "dev",
+    "database": "dev",
+    "host": "postgres",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "dev",
+    "password": "dev",
+    "database": "test",
+    "host": "postgres",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "dev",
+    "password": "dev",
+    "database": "prod",
+    "host": "postgres",
+    "dialect": "postgres"
+  }
+}

@@ -1,0 +1,15 @@
+node_modules
+package-lock.json
+
+logs
+
+tmp
+
+.env
+
+database/*.sqlite
+
+.history
+.idea
+
+.DS_Store
