@@ -10,11 +10,6 @@ module.exports = {
       password: Sequelize.DataTypes.STRING,
       email: Sequelize.DataTypes.STRING,
       bio: Sequelize.DataTypes.TEXT,
-      tags: Sequelize.DataTypes.TSVECTOR,
-      team_id: {
-        type: Sequelize.DataTypes.INTEGER,
-        allowNull: true,
-      },
       additional_info: Sequelize.DataTypes.JSON,
       created_at: Sequelize.DataTypes.DATE,
       updated_at: Sequelize.DataTypes.DATE,
