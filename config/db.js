@@ -23,16 +23,13 @@ const sequelize = new Sequelize(
   },
 );
 
-const checkDb = async () => {
-  try {
-    await sequelize.authenticate();
+sequelize.authenticate()
+  .then(() => {
     console.log('Success');
-  } catch (error) {
+  })
+  .catch((error) => {
     console.log(error);
-  }
-};
-
-checkDb();
+  });
 
 module.exports = {
   sequelize,

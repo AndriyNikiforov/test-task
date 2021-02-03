@@ -1,7 +1,7 @@
 version: '3'
 services:
   app:
-    container_name: app
+    container_name: test_task
     build:
       context: .
       dockerfile: docker/nodejs/Dockerfile
@@ -25,7 +25,7 @@ services:
     command: /bin/bash -c "envsubst '$${NGINX_PORT},$${NODE_PORT}' < /etc/nginx/conf.d/default.conf > /etc/nginx/conf.d/default.conf && exec nginx -g 'daemon off;'"
 
   postgres:
-    container_name: postgres
+    container_name: db
     image: postgres:9.6
     environment:
       - "POSTGRES_DB=dev"

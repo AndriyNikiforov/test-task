@@ -9,7 +9,7 @@
     "sequelize": "sequelize",
     "migration": "sequelize db:migrate",
     "test-migration": "NODE_ENV='test' sequelize db:migrate",
-    "sequelize-migration": "sequelize migration:generate --name"
+    "make:migration": "sequelize migration:generate --name"
   },
   "keywords": [],
   "author": "",

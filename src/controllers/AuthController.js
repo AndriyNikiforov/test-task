@@ -35,6 +35,7 @@ class AuthController {
     return response.send({
       success: true,
       jwt_token: jwt,
+      user,
     });
   }
 
@@ -71,6 +72,7 @@ class AuthController {
     return response.send({
       success: true,
       jwt_token: jwt,
+      user,
     });
   }
 
