@@ -7,8 +7,12 @@ const { Group, User } = require('../models');
 
 class GroupController {
   async index(request, response) {
-    const { page = 1, limit = 10 } = request.body;
-    const data = await Paginate.paginating(Group, page, limit);
+    const { page = 1, limit = 10, user_id: userId } = request.body;
+    const data = await Paginate.paginating(Group, page, limit, {
+      where: {
+        owner_id: userId,
+      },
+    });
 
     return response.send({ data });
   }
