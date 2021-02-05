@@ -12,6 +12,12 @@ class GroupController {
       where: {
         owner_id: userId,
       },
+      order: [
+        [
+          'updated_at',
+          'DESC',
+        ],
+      ],
     });
 
     return response.send({ data });

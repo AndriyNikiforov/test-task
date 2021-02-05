@@ -1,10 +1,22 @@
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
+const multer = require('multer');
+const dayjs = require('dayjs');
+
+const { join } = require('path');
 
 const Routers = require('./src/routers');
 
 const app = express();
+const storageConfig = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, join('public/uploads'));
+  },
+  filename: (req, file, cb) => {
+    cb(null, `${file.originalname}_${dayjs().format()}`);
+  },
+});
 let { NODE_PORT, NODE_ENV } = process.env;
 NODE_PORT = (NODE_ENV === 'test') ? 3007 : NODE_PORT;
 
@@ -15,8 +27,10 @@ app.use(express.json());
 app.use(express.urlencoded({
   extended: true,
 }));
-app.use('/api/', Routers);
+app.use(express.static(__dirname));
+app.use(multer({ storage: storageConfig }).single('file'));
 
+app.use('/api/', Routers);
 app.get('/', (req, res) => res.json({
   message: 'Hello world',
 }));

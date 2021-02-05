@@ -9,8 +9,19 @@ const { GroupNew, Group } = require('../models');
 
 class GroupNewsController {
   async index(request, response) {
-    const { page = 1, limit = 10 } = request.body;
-    const data = await Paginate.paginating(page, limit);
+    const { page = 1, limit = 10, group_id: groupId } = request.body;
+    const data = await Paginate.paginating(page, limit, {
+      where: {
+        group_id: groupId,
+      },
+      order: [
+        [
+          'updated_at',
+          'DESC',
+        ],
+      ],
+      include: Group,
+    });
 
     return response.send({
       success: true,
