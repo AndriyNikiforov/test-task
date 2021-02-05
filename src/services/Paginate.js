@@ -1,9 +1,11 @@
 /* eslint-disable class-methods-use-this */
 class Paginate {
-  async paginating(model, pageSize, pageLimit) {
+  async paginating(model, pageSize, pageLimit, optionsQuery) {
     const limitNumber = parseInt(pageLimit, 10) || 10;
     const page = parseInt(pageSize, 10) || 1;
-    const options = {
+    let options = optionsQuery;
+    options = {
+      ...options,
       offset: Paginate.getOffset(page, limitNumber),
       limit: limitNumber,
     };

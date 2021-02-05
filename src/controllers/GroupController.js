@@ -14,7 +14,7 @@ class GroupController {
   }
 
   async detail(request, response) {
-    const { body: data } = request;
+    const data = request.params;
     const result = IdValidator(data);
 
     if (!result.id) {
@@ -66,7 +66,7 @@ class GroupController {
   }
 
   async remove(request, response) {
-    const { body: data } = request;
+    const data = request.params;
     const result = IdValidator(data);
 
     if (!result.id) {
